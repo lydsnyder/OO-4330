@@ -55,65 +55,65 @@ public class CheckerboardFXMLController implements Initializable {
         refreshDefault(rows, cols);
     }
     
-    public void refresh()
+    private void refresh()
     {
         checkerboard.build();
         this.anchorPane = checkerboard.getBoard();
         vbox.getChildren().add(anchorPane);
     }
     
-    public void refreshDefault(int rows, int cols) {
+    private void refreshDefault(int rows, int cols) {
         checkerboard = new Checkerboard(rows, cols, vbox.getWidth(), vbox.getHeight() - menubar.getHeight());
         refresh();
     }
     
-    public void refreshWithColors(int rows, int cols, Color light, Color dark) {
+    private void refreshWithColors(int rows, int cols, Color light, Color dark) {
         checkerboard = new Checkerboard(rows, cols, vbox.getWidth(), vbox.getHeight() - menubar.getHeight(), light, dark);
         refresh();
     }
     
-    public void changeDimensions(int rows, int cols)
+    private void changeDimensions(int rows, int cols)
     {
         clearBoard();
         refreshWithColors(rows, cols, checkerboard.getLightColor(), checkerboard.getDarkColor());
     }
     
     @FXML
-    public void sixteenButton(ActionEvent event) 
+    private void sixteenButton(ActionEvent event) 
     {
         changeDimensions(16, 16);
     }
     
     @FXML
-    public void tenButton(ActionEvent event) 
+    private void tenButton(ActionEvent event) 
     {
         changeDimensions(10, 10);
     }
     
     @FXML
-    public void eightButton(ActionEvent event) 
+    private void eightButton(ActionEvent event) 
     {
         changeDimensions(8, 8);
     }
     
     @FXML
-    public void threeButton(ActionEvent event) {
+    private void threeButton(ActionEvent event) {
         changeDimensions(3, 3);
     }
     
     @FXML
-    public void handleColorDefault(ActionEvent event) {
+    private void handleColorDefault(ActionEvent event) {
         clearBoard();
         refreshWithColors(checkerboard.getNumRows(), checkerboard.getNumCols(), Color.RED, Color.BLACK);
     }
     
     @FXML
-    public void handleColorBlue(ActionEvent event) {
+    private void handleColorBlue(ActionEvent event) {
         clearBoard();
         refreshWithColors(checkerboard.getNumRows(), checkerboard.getNumCols(), Color.SKYBLUE, Color.DARKBLUE);
     }
     
-    public void clearBoard() {
+    private void clearBoard() {
         checkerboard.getBoard().getChildren().clear();
     }
 
